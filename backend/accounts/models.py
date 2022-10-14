@@ -21,6 +21,10 @@ class UserProfile(AbstractUser):
         verbose_name = _("user")
         verbose_name_plural = _("users")
 
+    username = models.CharField(
+        _("username"),
+        max_length=150
+    )
     email = models.EmailField(_("email address"), unique=True)
     bio = models.TextField(blank=True, null=True)
     # date_of_birth = models.DateField(default='')

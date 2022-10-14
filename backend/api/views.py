@@ -154,10 +154,10 @@ class UserCreateView(generics.CreateAPIView):
     serializer_class = serializers.UserRegisterSerializer
 
     def create(self, request, *args, **kwargs):
-            serializer = serializers.UserRegisterSerializer(data=request.data)
-            if serializer.is_valid():
-                self.perform_create(serializer)
-                return Response(serializer.data,
-                                status=status.HTTP_201_CREATED)
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+        serializer = serializers.UserRegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            return Response(serializer.data,
+                            status=status.HTTP_201_CREATED)
+        return Response(serializer.errors,
+                        status=status.HTTP_400_BAD_REQUEST)
